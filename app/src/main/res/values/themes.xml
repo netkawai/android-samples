@@ -1,0 +1,4 @@
+<resources>
+
+    <style name="Theme.ClockOverlay" parent="@style/Theme.Leanback" />
+</resources>
