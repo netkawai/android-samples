@@ -30,8 +30,8 @@ import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
-
-import java.util.Collections
+import com.medavox.library.mutime.MissingTimeDataException
+import java.util.*
 
 /**
  * A wrapper fragment for leanback details screens.
@@ -48,6 +48,15 @@ class VideoDetailsFragment : DetailsSupportFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.d(TAG, "onCreate DetailsFragment")
         super.onCreate(savedInstanceState)
+
+        try {
+            var theActualTime = com.medavox.library.mutime.MuTime.now();//throws MissingTimeDataException if we don't know the time
+            var currentDate =  Date(theActualTime)
+            Log.d(TAG,currentDate.toString())
+        }
+        catch (e : MissingTimeDataException) {
+            //Log.e("MuTime", "failed to get the actual time:"+e.getMessage())
+        }
 
         mDetailsBackground = DetailsSupportFragmentBackgroundController(this)
 

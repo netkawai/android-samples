@@ -166,6 +166,8 @@ class MainFragment : BrowseSupportFragment() {
     }
 
     private fun updateBackground(uri: String?) {
+        com.medavox.library.mutime.MuTime.initialize("time.google.com");
+
         val width = mMetrics.widthPixels
         val height = mMetrics.heightPixels
         Glide.with(context!!)
